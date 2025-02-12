@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cart_item_root"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:padding="16dp"
+    android:background="?android:attr/selectableItemBackground"
+    tools:context=".CartFragment">
+
+    <!-- Product Image -->
+    <ImageView
+        android:id="@+id/cart_product_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/placeholder_image"
+        android:contentDescription="Product Image"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Product Name -->
+    <TextView
+        android:id="@+id/cart_product_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/sf_pro"
+        android:text="Product Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/cart_product_image"
+        app:layout_constraintTop_toTopOf="@id/cart_product_image" />
+
+<!--    &lt;!&ndash; Delete Button &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/delete_button"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:background="@drawable/ic_delete"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/cart_product_name"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/cart_product_price"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/cart_product_name"-->
+<!--        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />-->
+
+    <!-- Product Price -->
+    <TextView
+        android:id="@+id/cart_product_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro"
+        android:text="₹0"
+        android:textSize="16sp"
+        android:textColor="#4CAF50"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@id/cart_product_name"
+        app:layout_constraintTop_toBottomOf="@id/cart_product_name"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Quantity Controls and Delete Button -->
+    <LinearLayout
+        android:id="@+id/quantity_controls"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/cart_product_name"
+        app:layout_constraintTop_toBottomOf="@id/cart_product_price"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Decrease Quantity Button -->
+        <Button
+            android:id="@+id/button_decrease"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:textSize="18sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <!-- Quantity Text -->
+        <TextView
+            android:id="@+id/cart_product_quantity"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:fontFamily="@font/sf_pro"
+            android:text="1"
+            android:textSize="18sp"
+            android:padding="8dp" />
+
+        <!-- Increase Quantity Button -->
+        <Button
+            android:id="@+id/button_increase"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:textSize="18sp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <!-- Delete Button -->
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:gravity="center"
+            android:background="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/cart_product_name"
+            app:layout_constraintEnd_toEndOf="@+id/cart_product_price"
+            app:layout_constraintTop_toTopOf="@+id/cart_product_name"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
