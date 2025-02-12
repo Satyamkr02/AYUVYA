@@ -36,6 +36,9 @@ Ayuvya is an Android e-commerce application designed for Ayurveda House Private 
 - **State Management:** ViewModel, LiveData
 - **Other Libraries:** Android Jetpack Components
 
+## Demo Video  
+[Click here to watch the demo](https://github.com/Satyamkr02/AYUVYA/blob/main/demo.mp4)
+
 ## Installation and Setup
 1. Clone the repository:
    ```sh
