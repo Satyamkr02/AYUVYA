@@ -39,7 +39,7 @@ Ayuvya is an Android e-commerce application designed for Ayurveda House Private 
 ## Installation and Setup
 1. Clone the repository:
    ```sh
-   (https://github.com/Satyamkr02/AYUVYA.git)
+   https://github.com/Satyamkr02/AYUVYA.git
    ```
 2. Open the project in **Android Studio**.
 3. Sync Gradle and build the project.
