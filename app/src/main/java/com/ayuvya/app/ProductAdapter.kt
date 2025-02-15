@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ProductAdapter(
     private val productList: List<Product>,
-
     private val onAddToCartClick: (Product, ProductViewHolder) -> Unit,
-
     private val onViewDetailsClick: (Product) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
@@ -34,11 +32,12 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
 
-        holder.productImage.setImageResource(product.imageResId)
+        // If product.imageResId is null, use a default placeholder image.
+        holder.productImage.setImageResource(product.imageResId ?: R.drawable.placeholder_image)
         holder.productName.text = product.name
         holder.productPrice.text = "₹${product.price}"
         holder.productDescription.text = product.description
-        // Hide description initially (if you wish to show it on detail screen only)
+        // Hide description initially (if you wish to show it on the detail screen only)
         holder.productDescription.visibility = View.GONE
 
         holder.viewDetailsButton.text = "View Details"

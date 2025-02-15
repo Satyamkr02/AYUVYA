@@ -34,7 +34,9 @@ class CartAdapter(
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val cartItem = cartItems[position]
-        holder.productImage.setImageResource(cartItem.product.imageResId)
+        // Use the product from cartItem to set the image.
+        // If imageResId is nullable, provide a default placeholder image.
+        holder.productImage.setImageResource(cartItem.product.imageResId ?: R.drawable.placeholder_image)
         holder.productName.text = cartItem.product.name
         holder.productPrice.text = "₹${cartItem.product.price}"
         holder.quantityText.text = cartItem.quantity.toString()
@@ -46,10 +48,7 @@ class CartAdapter(
             onDecreaseQuantity(cartItem)
         }
         holder.deleteButton.setOnClickListener {
-
             onDeleteProduct(cartItem)
-
-            // Showing toast message after deleting the product
             Toast.makeText(holder.itemView.context, "${cartItem.product.name} removed from cart", Toast.LENGTH_SHORT).show()
         }
     }

@@ -39,9 +39,9 @@ class CartFragment : Fragment() {
         totalAmountText = binding.TotalAmountText
         placeholderImage = binding.placeholderImage
 
-        // Observe changes in cart items and update the RecyclerView and total amount
+        // Observe changes in cart items from the shared CartViewModel.
         cartViewModel.cartItems.observe(viewLifecycleOwner) { cartItems ->
-
+            // Initialize the CartAdapter with the list of CartItem objects.
             cartAdapter = CartAdapter(
                 cartItems,
                 onIncreaseQuantity = { cartItem ->
@@ -56,11 +56,11 @@ class CartFragment : Fragment() {
             )
             binding.recyclerViewCart.adapter = cartAdapter
 
-            // Update total items count and total amount
+            // Update total items count and total amount.
             binding.textViewTotalItems.text = "Total Items in the Cart: ${cartViewModel.getTotalItems()}"
             updateTotalAmount(cartItems)
 
-            // Handle placeholder visibility based on cart items
+            // Handle placeholder visibility based on cart items.
             if (cartItems.isEmpty()) {
                 placeholderImage.visibility = View.VISIBLE
                 binding.recyclerViewCart.visibility = View.GONE
@@ -72,9 +72,8 @@ class CartFragment : Fragment() {
     }
 
     private fun updateTotalAmount(cartItems: List<CartItem>) {
-
-        val totalAmount = cartItems.sumOf {
-            (it.product.price.toDouble() * it.quantity).toDouble() // Convert price to Double and to ensure proper multiplication
+        val totalAmount = cartItems.sumOf { cartItem ->
+            cartItem.product.price.toDouble() * cartItem.quantity
         }
         totalAmountText.text = "₹$totalAmount"
     }
